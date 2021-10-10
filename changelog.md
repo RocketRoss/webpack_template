@@ -51,3 +51,41 @@ Added the `"build": "webpack"` task to `package.json["scripts"]`.
 		...
 	}
 	```
+
+- `$ npm install --save-dev webpack-merge`
+
+	Created `webpack.prod.js`:
+	```
+	const path = require("path");
+	const Merge = require("webpack-merge");
+	const baseconfig = require("./webpack.config");
+
+	module.exports = Merge.merge(baseconfig, {
+			mode: "production",
+			// devtool: "none",
+			output: {
+				filename: "[name].[chunkhash].js",
+				path: path.resolve(__dirname, "dist")
+			} 
+		}
+	)
+	```
+
+	Created `webpack.dev.js`:
+	```
+	const path = require("path");
+	const Merge = require("webpack-merge");
+	const baseconfig = require("./webpack.config");
+
+	module.exports = Merge.merge(baseconfig, {
+			mode: "development",
+			// devtool: "none",
+			output: {
+				filename: "[name].js",
+				path: path.resolve(__dirname, "dist")
+			} 
+		}
+	)
+	```
+
+	Changed `package.json["scripts"]["build"]` to use `webpack.prod.js`.
