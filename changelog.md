@@ -104,3 +104,14 @@ Added the `"build": "webpack"` task to `package.json["scripts"]`.
 	}
 	```
 	Added `assetModuleFilename: "./assets/[name].[hash].[ext]"` to `webpack.prod.js["output"]`.
+
+- `$ npm install --save clean-webpack-plugin`
+
+	Added to `webpack.prod.js`: 
+	```
+	const CleanWebpackPlugin = require("clean-webpack-plugin");
+
+	...
+		plugins: [new CleanWebpackPlugin.CleanWebpackPlugin()],
+	...
+	```
