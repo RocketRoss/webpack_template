@@ -89,3 +89,7 @@ Added the `"build": "webpack"` task to `package.json["scripts"]`.
 	```
 
 	Changed `package.json["scripts"]["build"]` to use `webpack.prod.js`.
+
+- `$ npm install --save-dev webpack-dev-server`
+
+	Added the `"dev-serve": "webpack serve --config webpack.dev.js --open"` task to `package.json["scripts"]`.
