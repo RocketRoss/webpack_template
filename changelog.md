@@ -28,3 +28,26 @@ Added the `"build": "webpack"` task to `package.json["scripts"]`.
 		}
 	}
 	```
+
+- `$ npm install --save-dev html-webpack-plugin`
+
+	Expanded the `webpack.config.js`:
+	```
+	var HtmlWebpackPlugin = require('html-webpack-plugin');
+	...
+	module.exports = {
+		...
+		output: {
+			...
+			filename: "main.[contenthash].js"
+			...
+		}
+		...
+		plugins: [
+			new HtmlWebpackPlugin({
+					template: "./src/html/index.html"
+				})
+		],
+		...
+	}
+	```
