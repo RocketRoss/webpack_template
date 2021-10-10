@@ -6,6 +6,7 @@ module.exports = Merge.merge(baseconfig, {
 		mode: "production",
 		// devtool: "none",
 		output: {
+			assetModuleFilename: "./assets/[name].[hash].[ext]",
 			filename: "[name].[chunkhash].js",
 			path: path.resolve(__dirname, "dist")
 		} 

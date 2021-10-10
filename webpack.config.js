@@ -5,6 +5,14 @@ module.exports = {
 	mode: "development",
 	// devtool: "none",
 	entry: "./src/index.js",
+	module: {
+		rules: [
+			{
+				test: /\.html$/,
+				use: ["html-loader"]
+			}
+		]
+	},
 	output: {
 		filename: "main.[contenthash].js",
 		path: path.resolve(__dirname, "dist")

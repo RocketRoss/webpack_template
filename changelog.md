@@ -93,3 +93,14 @@ Added the `"build": "webpack"` task to `package.json["scripts"]`.
 - `$ npm install --save-dev webpack-dev-server`
 
 	Added the `"dev-serve": "webpack serve --config webpack.dev.js --open"` task to `package.json["scripts"]`.
+
+- `$ npm install --save-dev html-loader`
+
+	Added to `webpack.config.js["module"]["rules"]`:
+	```
+	{
+		test: /\.html$/,
+		use: ["html-loader"]
+	}
+	```
+	Added `assetModuleFilename: "./assets/[name].[hash].[ext]"` to `webpack.prod.js["output"]`.
