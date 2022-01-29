@@ -1,6 +1,7 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const Merge = require("webpack-merge");
 const baseconfig = require("./webpack.config");
 
@@ -23,6 +24,12 @@ module.exports = Merge.merge(baseconfig, {
 					]
 				}
 			]
+		},
+		optimization: {
+			minimizer: [
+				`...`,
+				new CssMinimizerPlugin(),
+			],
 		},
 		plugins: [
 			new CleanWebpackPlugin.CleanWebpackPlugin(),
