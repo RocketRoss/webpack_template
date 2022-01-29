@@ -116,7 +116,6 @@ Added the `"build": "webpack"` task to `package.json["scripts"]`.
 	...
 	```
 
-
 - `$ npm install --save-dev style-loader css-loader`
 
 	Added to `webpack.config.js["module"]["rules"]`:
@@ -126,3 +125,15 @@ Added the `"build": "webpack"` task to `package.json["scripts"]`.
 		use: ["style-loader", "css-loader"]
 	}
 	```
+
+- `$ npm install --save-dev popper jquery`
+
+	Adjusted `webpack.config.js["entry"]`:
+	```
+	{
+		main: "./src/main.js",
+		vendor: "./src/vendor.js"
+	}
+	```
+	This splits the collapsed js bundles produced.
+	Dependencies installed for bootstrap which is imported in added `vendor.js`.

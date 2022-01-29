@@ -4,7 +4,10 @@ const path = require("path");
 module.exports = {
 	mode: "development",
 	// devtool: "none",
-	entry: "./src/main.js",
+	entry: {
+		main: "./src/main.js",
+		vendor: "./src/vendor.js"
+	},
 	module: {
 		rules: [
 			{
@@ -22,7 +25,7 @@ module.exports = {
 		]
 	},
 	output: {
-		filename: "main.[contenthash].js",
+		filename: "[name].[contenthash].js",
 		path: path.resolve(__dirname, "dist")
 	},
 	plugins: [
