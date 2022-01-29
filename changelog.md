@@ -115,3 +115,14 @@ Added the `"build": "webpack"` task to `package.json["scripts"]`.
 		plugins: [new CleanWebpackPlugin.CleanWebpackPlugin()],
 	...
 	```
+
+
+- `$ npm install --save-dev style-loader css-loader`
+
+	Added to `webpack.config.js["module"]["rules"]`:
+	```
+	{
+		test: /\.css$/,
+		use: ["style-loader", "css-loader"]
+	}
+	```
