@@ -13,14 +13,6 @@ module.exports = {
 			{
 				test: /\.html$/,
 				use: ["html-loader"]
-			},
-			{
-				test: /\.scss$/,
-				use: [
-					"style-loader",	// 3. <style>
-					"css-loader", 	// 2. CSS  -> JS
-					"sass-loader"		// 1. SASS -> CSS
-				]
 			}
 		]
 	},

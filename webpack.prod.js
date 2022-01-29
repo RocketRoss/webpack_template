@@ -1,5 +1,6 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Merge = require("webpack-merge");
 const baseconfig = require("./webpack.config");
 
@@ -11,6 +12,23 @@ module.exports = Merge.merge(baseconfig, {
 			filename: "[name].[chunkhash].js",
 			path: path.resolve(__dirname, "dist")
 		},
-		plugins: [new CleanWebpackPlugin.CleanWebpackPlugin()]
+		module: {
+			rules: [
+				{
+					test: /\.scss$/,
+					use: [
+						MiniCssExtractPlugin.loader,	// 3. CSS -> files
+						"css-loader", 	// 2. CSS  -> JS
+						"sass-loader"		// 1. SASS -> CSS
+					]
+				}
+			]
+		},
+		plugins: [
+			new CleanWebpackPlugin.CleanWebpackPlugin(),
+			new MiniCssExtractPlugin({
+				filename: "[name].[chunkhash].css"
+			})
+		]
 	}
 )
